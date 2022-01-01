@@ -1,0 +1,24 @@
+{
+  "name": "calvin-di",
+  "version": "0.0.1",
+  "description": "A simple dependency injection container for JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nathan-fiscaletti/calvin-di.git"
+  },
+  "keywords": [
+    "dependency",
+    "injection",
+    "di"
+  ],
+  "author": "Nathan Fiscaletti <nate.fiscaletti@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathan-fiscaletti/calvin-di/issues"
+  },
+  "homepage": "https://github.com/nathan-fiscaletti/calvin-di"
+}
