@@ -1,28 +1,49 @@
-function test() {
-    return "nathan1";
-}
+const { container } = require(`.`);
 
-async function test2() {
-    return "nathan2";
-}
-
-function test3() {
-    return new Promise((resolve, reject) => {
-        reject("nathan3");
+function sleep(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
     });
 }
 
-async function run() {
-    // console.log(await test());
-    // console.log(await test2());
-    try {
-        console.log(await test3());
-    } catch (err) {
-        console.log(`err: ${err}`);
-    }
-    // Promise.resolve(test()).then(val => console.log(val));
-    // Promise.resolve(test2()).then(val => console.log(val));
-    // Promise.resolve(test3()).then(val => console.log(val));
-}
+const OtherUserService = () => ({
+    register: () => console.log('it different')
+});
 
-run();
+const UserService = () => ({
+    register: () => console.log('registered user')
+});
+
+const PlatformService = (US) => ({
+    run: () => US.register()
+});
+
+const TestService = (PS, US, https) => ({
+    do: () => PS.run(),
+    start: () => {
+        console.log(https.Server);
+        console.log('started TestService');
+    }
+});
+
+const https = require(`https`);
+
+const deps = container();
+deps.register('UserService', UserService);
+deps.register('OtherUserService',OtherUserService);
+deps.register('PlatformService', PlatformService, {}, ['UserService']);
+// container.register('TestService', TestService, {}, ['PlatformService', 'UserService', 'https']);
+deps.registerComplex({
+    name: 'TestService',
+    factory: TestService,
+    dependencies: ['PlatformService', 'UserService', 'https']
+});
+deps.register('https', https);
+
+// container.reset();
+
+try {
+    deps.getInstance('TestService2').do();
+} catch (err) {
+    console.log(err);
+}
