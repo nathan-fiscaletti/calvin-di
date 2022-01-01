@@ -5,7 +5,7 @@ Calvin is a simple dependency injection container for JavaScript.
 ## Example
 
 ```javascript
-const calvin = require(`calvin`);
+const calvin = require(`calvin-di`);
 
 const TestService = (US) => ({
     action: () => console.log(`action performed by ${US.getUserName()}.`)
