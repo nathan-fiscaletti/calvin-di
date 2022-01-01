@@ -1,4 +1,4 @@
-const container = (promise = Promise) => ({
+const calvin = (promise = Promise) => ({
     modules: {},
 
     registerComplex: function(module) {
@@ -221,8 +221,8 @@ const container = (promise = Promise) => ({
         return promise.all(promises);
     },
 
-    filteredModules: function(filter) {
-        return filter(this.modules, filter);
+    filteredModules: function(f) {
+        return filter(this.modules, f);
     }
 });
 
@@ -274,4 +274,4 @@ class ContainerError extends Error {
     }
 }
 
-module.exports = { container };
+module.exports = calvin;
