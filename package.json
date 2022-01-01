@@ -1,5 +1,5 @@
 {
-  "name": "calvin-di",
+  "name": "calvin",
   "version": "0.0.1",
   "description": "A simple dependency injection container for JavaScript.",
   "main": "index.js",
