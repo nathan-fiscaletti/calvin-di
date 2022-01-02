@@ -1,6 +1,6 @@
 {
   "name": "calvin-di",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple dependency injection container for JavaScript.",
   "main": "index.js",
   "scripts": {

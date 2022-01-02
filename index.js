@@ -237,7 +237,7 @@ function filter(obj, filter) {
     const isInFilter = (obj, f) => {
         let filterTermsMet = true;
         for (const filteredProp in f) {
-            if (typeof filter[filteredProp] === 'object' && !Array.isArray(f[filteredProp])) {
+            if (typeof f[filteredProp] === 'object' && !Array.isArray(f[filteredProp])) {
                 filterTermsMet = isInFilter(obj[filteredProp], f[filteredProp]);
             } else {
                 filterTermsMet = obj[filteredProp] === f[filteredProp];
