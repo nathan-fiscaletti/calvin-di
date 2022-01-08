@@ -2,6 +2,10 @@
 
 Calvin is a simple dependency injection container for JavaScript.
 
+```js
+npm i calvin-di
+```
+
 ## Example
 
 ```javascript
